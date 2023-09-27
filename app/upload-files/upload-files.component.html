@@ -1,0 +1,150 @@
+<nav>
+  <div class="logo">
+    <img src="assets/6.png" alt="Image" style="border-radius: 5%;  margin-top: -1.7%; margin-right: 20%; height:7%; width: 8%; position:absolute;"/>
+  </div>
+  
+  <label for="click" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  </label>
+  <ul>
+     <li><a routerLink="" class="active" >Home</a></li>
+     <li><a routerLink="/attendance">Attendance</a></li>
+
+  </ul>
+</nav>
+
+<div class="white-container">
+<div class="container mt-5">
+  <div class="stylelable">
+  
+      <h2 style="font-size: 30px; font-family: cursive; ">File Upload</h2>
+      <br>
+
+      <div class="container">
+        <div class="row">
+      <div class="col-sm-4">
+        
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/10.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      </div>
+
+      <div class="col-sm-4">
+       
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/11.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-4"> 
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/12.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <br>
+      <br>
+      <form (submit)="uploadFile()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file" style="font-size: 20px; font-weight: bolder;  font-family: cursive;">Choose a file:</label>
+          <br>
+<br>
+          <!-- Create a custom file input container -->
+          <label class="file-input-container">
+            <span>Choose</span>
+            <input type="file" class="file-input" id="file" (change)="onFileSelected($event)">
+          </label>
+        </div>
+        <!-- Display the selected file name -->
+        <div *ngIf="selectedFile" class="selected-file">
+          Selected file: {{ selectedFile.name }}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark btn-upload">Upload</button>
+      </form>
+      
+      <!-- Display success message if uploadSuccess is true -->
+      <div *ngIf="uploadSuccess" class="alert alert-success alert-success-custom mt-3">
+        File uploaded successfully!
+      </div>
+    </div>
+    
+</div>
+</div>
+
+
+<!-- therid cooodes-->
+
+<!-- <div class="white-container"> 
+<div class="container mt-5">
+  <div class="stylelable">
+  <h2>File Upload and Download</h2>
+  <br>
+  <form (submit)="uploadFile()" enctype="multipart/form-data">
+    <div class="form-group">
+      <br>
+      <label for="file">Choose a file:</label>
+      <br>
+      <input type="file" class="form-control-file" id="file" (change)="onFileSelected($event)">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-dark">Upload</button>
+  
+  </form>
+  <br>
+<button class="btn btn-success mt-2" (click)="downloadFile()" [disabled]="!downloadUrl">Download</button>
+  <button type="button" class="btn btn-dark" (click)="downloadFile()" [disabled]="!downloadUrl">Download</button>
+</div> -->
+
+
+
+
+
+
+<!--Secand coode-->
+<!--
+<div class="white-container"> 
+  <div class="container mt-5">
+    <h2>File Upload</h2>
+    <form (submit)="uploadFile()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="file">Choose a file:</label>
+        <input type="file" class="form-control-file" id="file" (change)="onFileSelected($event)">
+      </div>
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  </div>
+  -->
+
+<!-- <div class="container">
+  <h2>Upload Attendance File</h2>
+  <form (ngSubmit)="uploadFile()" #fileUploadForm="ngForm">
+    <div class="form-group">
+      <div class="stylelable">
+        <br>
+        <br>
+        <label for="file">Select a CSV file:</label>
+        <br>
+        <input type="file" id="file" name="file" accept=".csv" (change)="onFileSelected($event)">
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="submitbutton">
+    <button type="submit" [disabled]="!selectedFile" class="btn btn-primary">Upload</button>
+  </div>
+  </form>
+</div> -->

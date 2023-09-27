@@ -1,0 +1,169 @@
+<nav>
+  <div class="logo">
+    <img src="assets/6.png" alt="Image" style="border-radius: 5%;  margin-top: -1.7%; margin-right: 20%; height:7%; width: 8%; position:absolute;"/>
+  </div>
+  
+  <label for="click" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  </label>
+  <ul>
+     <li><a routerLink="" class="active" >Home</a></li>
+     <li><a routerLink="/upload">Upload File</a></li>
+  </ul>
+</nav>
+
+
+<div class="white-container"> 
+<div class="container">
+  <br>
+  <br>  
+  <br>
+  <h2 style="font-size: 30px; font-family: cursive; ">Attendance Table</h2>
+  <br>
+  <br>
+  <br>
+ 
+  <!-- Add new student form -->
+  <div class="form">
+    <div class="input-group">
+      <input type="text" [(ngModel)]="newStudent.name" placeholder="Student Name" style=" width: 200px; height: 70px;">
+      <p-calendar [(ngModel)]="newStudent.date" [showIcon]="true" placeholder="Date"></p-calendar>
+      <p-dropdown [(ngModel)]="newStudent.status" [options]="statusOptions" placeholder="Status" styleClass="custom-dropdown-width"></p-dropdown>
+      <br>
+      <button (click)="addStudent()" >Add Student</button>
+    </div>
+  </div>
+
+  <!-- Attendance table -->
+  <p-table [value]="students" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>Student Name</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student let-i="rowIndex">
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.date | date }}</td>
+        <td>{{ student.status }}</td>
+        <td>
+          <button (click)="deleteStudent(i)">Delete</button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="navbar">
+  <div class="container_1">
+      <ul>
+          <li><a routerLink="/" class="menu-item">Home</a></li>
+          <li><a routerLink="/upload" class="menu-item">Upload File</a></li>
+      </ul>
+  </div>
+</div> --> 
+
+
+<!-- 
+<nav>
+  <div class="logo">
+    <img src="assets/6.png" alt="Image" style="border-radius: 5%;  margin-top: -1.7%; margin-right: 20%; height:7%; width: 8%; position:absolute;"/>
+  </div>
+  
+  <label for="click" class="menu-btn">
+  <i class="fas fa-bars"></i>
+  </label>
+  <ul>
+     <li><a routerLink="" class="active" >Home</a></li>
+     <li><a routerLink="/upload">Upload File</a></li>
+
+  </ul>
+</nav>
+
+
+<div class="container">
+  <h2>Attendance Management</h2>
+<br>
+<br>
+<p-table [value]="students" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Number</th>
+      <th>Student Name</th>
+      <th>Date</th>
+      <th>Present/Absence</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-student let-i="rowIndex">
+    <tr [class.selected]="student === selectedStudent" (click)="selectedStudent = student">
+      <td>{{ i + 1 }}</td>
+      <td>{{ student.name }}</td>
+      <td>
+        <td>
+      
+       <p-calendar [(ngModel)]="student.date" dateFormat="dd/mm/yy"></p-calendar>
+      </td> 
+      <td>
+        <p-dropdown [(ngModel)]="student.attendance" [options]="attendanceOptions"></p-dropdown>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<br>
+<br>
+
+<div class="button-container">
+  <button pButton type="button" (click)="addStudent()" label="Add Student" class="btn btn-dark" ></button>
+  &nbsp; &nbsp;
+  <button pButton type="button" (click)="deleteStudent()" label="Delete Student"></button>
+</div>
+
+</div>
+
+</div>
+ -->
+
+
+
+
+
+
+
+
+
